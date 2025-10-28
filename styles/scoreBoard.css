@@ -1,0 +1,188 @@
+body {
+    background-color: #1f2937;
+    min-height: 100vh;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: 'Inter', sans-serif;
+}
+
+.scoreboard-container {
+    position: fixed;
+    top: 2rem;
+    left: 4rem;
+    right: 4rem;
+    display: flex;
+    justify-content: space-around;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background-color: #0070e2;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); 
+    border-left: 8px solid #facc15;
+    border-right: 8px solid #facc15;
+}
+
+/* Grid Layout */
+.grid-layout {
+    /* grid grid-cols-3 gap-2 text-center relative z-10 */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem; /* gap-2 */
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* Button Group */
+.button-group {
+    /* flex justify-center space-x-4 mt-10 p-2 */
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* space-x-4 */
+    margin-top: 2.5rem; /* mt-10 */
+    padding: 0.5rem; /* p-2 */
+}
+
+/* Buttons */
+.button-group button {
+    /* text-white font-bold py-2 px-4 rounded-full transition-all shadow-md */
+    color: white;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px; /* rounded-full */
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-md */
+}
+
+.btn-win { background-color: #10b981; } /* bg-green-500 */
+.btn-win:hover { background-color: #059669; } /* hover:bg-green-600 */
+
+.btn-tie { 
+    background-color: #f59e0b; /* bg-yellow-500 */
+    color: #1f2937; /* text-gray-900 */
+}
+.btn-tie:hover { background-color: #d97706; } /* hover:bg-yellow-600 */
+
+.btn-loss { background-color: #ef4444; } /* bg-red-500 */
+.btn-loss:hover { background-color: #dc2626; } /* hover:bg-red-600 */
+
+/* Background Star Positioning */
+.star.star-tl { top: 0.5rem; left: 25%; transform: translateX(-50%); } /* top-2 left-1/4 transform -translate-x-1/2 */
+.star.star-tr { top: 1rem; right: 25%; transform: translateX(50%); } /* top-4 right-1/4 transform translate-x-1/2 */
+.star.star-bl { bottom: 2.5rem; left: 2.5rem; } /* bottom-10 left-10 */
+.star.star-br { bottom: 1.25rem; right: 5rem; } /* bottom-5 right-20 */
+.star.star-mid { top: 50%; left: 50%; transform: translate(-50%, -50%); } /* top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 */
+
+/* --- MEDIA QUERIES FOR RESPONSIVENESS --- */
+
+/* Medium Devices (md: 768px and up) */
+@media (min-width: 768px) {
+    .scoreboard-container {
+        padding: 2.5rem; /* md:p-10 */
+    }
+    .grid-layout {
+        gap: 2rem; /* md:gap-8 */
+    }
+    /* md:text-8xl */
+    .chunky-title { font-size: 6rem; }
+    .pixel-score { font-size: 6rem; }
+}
+
+/* Large Devices (lg: 1024px and up) */
+@media (min-width: 1024px) {
+    /* lg:text-9xl */
+    .chunky-title { font-size: 8rem; }
+    .pixel-score { font-size: 8rem; }
+}
+
+
+/* --- EXISTING CUSTOM PIXEL AND CHUNKY FONT STYLES --- */
+
+/* Base style for the main titles (WINS, TIES, LOSES)
+    * Uses heavy, offset shadows to create the chunky, blocky outline effect.
+    */
+.chunky-title {
+    /* font-family: 'Inter', sans-serif; - already set on body */
+    font-weight: 900;
+    line-height: 1;
+    /* text-5xl (default size before media query) */
+    font-size: 3rem;
+    /* uppercase */
+    text-transform: uppercase; 
+    /* mb-4 */
+    margin-bottom: 1rem; 
+    /* Multiple shadows for 3D/outlined look */
+    text-shadow: 
+        -4px -4px 0 #1f2937, /* Top-Left Outer Outline (Dark) */
+            4px -4px 0 #1f2937, /* Top-Right Outer Outline (Dark) */
+        -4px  4px 0 #1f2937, /* Bottom-Left Outer Outline (Dark) */
+            4px  4px 0 #1f2937, /* Bottom-Right Outer Outline (Dark) */
+            7px  7px 0 #00000080; /* Drop Shadow (Black with transparency) */
+}
+
+/* Base style for the scores (00)
+    * Uses uniform 1px shadows in multiple directions to simulate a true pixel font.
+    */
+.pixel-score {
+    font-family: monospace; /* Use monospace for consistency */
+    font-weight: 900;
+    line-height: 1;
+    /* text-5xl (default size before media query) */
+    font-size: 3rem; 
+    /* 8-bit style shadow */
+    text-shadow: 
+        -1px -1px 0 #000, 
+            1px -1px 0 #000, 
+        -1px  1px 0 #000, 
+            1px  1px 0 #000,
+            0    2px 0 #000;
+}
+
+/* --- COLOR STYLING FOR TITLES --- */
+
+/* WINS - Blue with Dark Outline */
+.title-wins {
+    color: #4b90ff; /* Light Blue/Electric Blue for the inner fill */
+}
+
+/* TIES - Orange with Dark Outline */
+.title-ties {
+    color: #ff9933; /* Bright Orange for the inner fill */
+}
+
+/* LOSES - Purple with Dark Outline */
+.title-loses {
+    color: #9966ff; /* Medium Violet/Purple for the inner fill */
+}
+
+/* --- COLOR STYLING FOR SCORES --- */
+
+/* WINS and LOSES Score (White/Outline) */
+.score-white {
+    color: white; 
+}
+
+/* TIES Score (Orange/Outline) */
+.score-orange {
+    color: #ff9933; /* Matches TIES title color */
+}
+
+/* --- Animation for the background stars (subtle blinking) --- */
+.star {
+    animation: blink 3s infinite alternate;
+    position: absolute;
+    font-size: 1.5rem;
+    color: #ffff99; /* Pale Yellow */
+    filter: drop-shadow(0 0 5px #ffff99);
+    z-index: 0;
+}
+
+@keyframes blink {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}

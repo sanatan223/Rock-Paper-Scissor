@@ -1,0 +1,47 @@
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.score-board{
+  position: fixed;
+  top: 3rem;
+  left: 3rem;
+  right: 3rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.score-icon{
+  width: 10rem;
+}
+
+.moves-part{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.move-button{
+  margin: 2rem;
+  width: 15rem;
+  height: 15rem;
+  display: flex;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  transition: box-shadow 0.3s;
+}
+
+.move-button:hover{
+  box-shadow: 0 0 30px blue;
+}
+
+.move-icon{
+  width: 15rem;
+}
+
+
+
