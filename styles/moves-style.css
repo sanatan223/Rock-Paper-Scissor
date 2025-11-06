@@ -1,0 +1,25 @@
+.moves-part{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .move-button{
+    margin: 2rem;
+    width: 10rem;
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background: none;
+    transition: box-shadow 0.3s;
+  }
+  
+  .move-button:hover{
+    box-shadow: 0 0 30px blue;
+  }
+  
+  .move-icon{
+    width: 15rem;
+  }
